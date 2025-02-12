@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfj1hxul67dhn"]
+
+[ext_resource type="Script" path="res://game_manager.gd" id="1_8rry6"]
+[ext_resource type="AudioStream" uid="uid://iuc2it6flivp" path="res://sounds/BackgroundMusic.wav" id="2_qq53b"]
+[ext_resource type="AudioStream" uid="uid://fvpyx33ey6wg" path="res://sounds/CoinSound.wav" id="3_1i5bg"]
+[ext_resource type="AudioStream" uid="uid://def7f2gkn7jc3" path="res://sounds/WinSound.wav" id="4_lvx6y"]
+[ext_resource type="AudioStream" uid="uid://b3deskpob0a2i" path="res://sounds/LoseSound.wav" id="5_so7ip"]
+
+[node name="GameManager" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8rry6")
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 12.0
+offset_right = 102.0
+offset_bottom = 35.0
+text = "Time Left: 02:00"
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 120.0
+
+[node name="GameOverPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 302.0
+offset_right = 731.0
+offset_bottom = 388.0
+
+[node name="ResultLabel" type="Label" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 47.0
+grow_horizontal = 2
+text = "Result"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Try Again"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qq53b")
+volume_db = -10.0
+playback_type = 1
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1i5bg")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lvx6y")
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_so7ip")
